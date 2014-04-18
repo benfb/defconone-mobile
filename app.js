@@ -40,7 +40,7 @@ var redisUrl = url.parse(process.env.REDISTOGO_URL);
 var redisAuth = redisUrl.auth.split(':');
 
 // all environments
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
