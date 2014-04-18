@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Defcon One</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="/css/ratchet.css" rel="stylesheet">
+    <script src="/js/ratchet.js"></script>
+  </head>
+  <body>
+    <!-- Make sure all your bars are the first things in your <body> -->
+    <header class="bar bar-nav">
+      <a class="icon icon-left-nav pull-left button-prev" href="javascript:history.back()"></a>
+      <a class="icon icon-home pull-right" href="index.html" data-transition="slide-out"></a>
+      <h1 class="title">Defcon One</h1>
+    </header>
+
+    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+    <div class="content">
+      <div class="content-padded">
+        <h5>Use this option only in the most serious of emergencies. It will send the following message to your contacts:</h5>
+        <p><em>I am having suicidal thoughts right now and I need your help. Please call or text me immediately and take me to a local hospital to get a suicide assessment. If you are unable to reach me, call 911. I am not safe and cannot guarantee you that right now I will not hurt myself. This is urgent and you must take immediate action.</em></p>
+        <form>
+          <button class="btn btn-negative btn-block">Send text messages and emails</button>
+        </form>
+        <p>Not an emergency? Use the <a href="alert.html">alert</a> page instead to send a less urgent message.</p>
+        </div>
+    </div>
+  </body>
+</html>

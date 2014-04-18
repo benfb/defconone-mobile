@@ -1,20 +1,14 @@
-link(rel='stylesheet', href='/css/signup.css')
 extends layout
 block content
     body
-        .container
-            .col-md-6.col-md-offset-3
-                form.form-signin(action="/login", method="post")
-                    h2.form-signin-heading Sign in
-                    include messages
+        .content
+            include messages
+            form.content-padded(action="/login", method="post")
+                h4 Sign in
+                p
                     em
-                      | Don't have an account? 
-                      a(href="/signup") Sign up.
-                    br
-                    br
-                    input.form-control(type='text', name='username', placeholder='Username', autofocus='autofocus')
-                    br
-                    input.form-control(type='password', name='password', placeholder='Password')
-                    br
-                    button.btn.btn-lg.btn-info.btn-block(type='submit') Sign in
-                    br
+                        | Don't have an account? 
+                        a(href="/signup") Sign up.
+                input(type='text', name='username', placeholder='Username', autofocus='autofocus')
+                input(type='password', name='password', placeholder='Password')
+                button.btn.btn-primary.btn-block(type='submit') Sign in

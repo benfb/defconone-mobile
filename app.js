@@ -130,28 +130,6 @@ app.post('/crisis', function (req, res) {
 app.post('/alert', function (req, res) {
     alert.send(req, res);
 });
-                                                   
-// #    #  ####  ##### #      # #    # ######  ####  
-// #    # #    #   #   #      # ##   # #      #      
-// ###### #    #   #   #      # # #  # #####   ####  
-// #    # #    #   #   #      # #  # # #           # 
-// #    # #    #   #   #      # #   ## #      #    # 
-// #    #  ####    #   ###### # #    # ######  ####  
-                                                   
-
-
-app.get('/hotlines/hl', function (req, res) {
-    var hotline = req.param('radios', null);
-    if (hotline === 'suicide') { res.redirect('http://imalive.org'); }
-    else if (hotline === 'alcohol') { res.redirect('http://www.alcoholhotline.com/AlcoholRehab/get-help-now/'); }
-    else if (hotline === 'grief') { res.redirect('https://www.nrd.gov/family_and_caregiver_support/survivors/coping_with_grief'); }
-    else if (hotline === 'selfharm') { res.redirect('http://www.cuttingdepression.net/self-harm-hotline/'); }
-    else if (hotline === 'ed') { res.redirect('https://www.nationaleatingdisorders.org/find-help-support'); }
-    else if (hotline === 'sexuality') { res.redirect('http://www.glnh.org/'); }
-    else if (hotline === 'abuse') { res.redirect('http://www.thehotline.org/help/'); }
-    else if (hotline === 'rape') { res.redirect('https://ohl.rainn.org/online/'); }
-    
-});
 
 // sign up
 app.post('/signup', function (req, res) {
@@ -275,7 +253,7 @@ passport.use(new LocalStrategy(function (username, password, done) {
 }));
 
 app.post('/login', passport.authenticate('local', { failureRedirect: '/signin', failureFlash: true }), function (req, res) {
-    req.flash('success', 'Signed in successfully. Hello, ' + req.user.username + '!');
+    req.flash('success', 'Signed in successfully.');
     var redirectUrl = '/';
     if (req.session.redirectUrl) {
         redirectUrl = req.session.redirectUrl;
@@ -304,7 +282,6 @@ app.get('/about', routes.about);
 app.get('/users', user.list);
 app.get('/alert', ensureAuthenticated, routes.alert);
 app.get('/crisis', ensureAuthenticated, routes.crisis);
-app.get('/hotlines', routes.hotlines);
 app.get('/signup', routes.signup);
 app.get('/signin', routes.signin);
 app.get('/settings', ensureAuthenticated, routes.settings);

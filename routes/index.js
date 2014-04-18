@@ -17,10 +17,6 @@ exports.crisis = function (req, res) {
     res.render('crisis', { title: "Crisis", user: req.user, messageE: req.flash('error'), messageI: req.flash('info'), messageS: req.flash('success') });
 };
 
-exports.hotlines = function (req, res) {
-	res.render('hotlines', { title: 'Hotlines', user: req.user, messageE: req.flash('error'), messageI: req.flash('info'), messageS: req.flash('success')});
-};
-
 exports.signup = function (req, res) {
 	res.render('signup', { title: "Sign Up", user: req.user, messageE: req.flash('error'), messageI: req.flash('info'), messageS: req.flash('success') });
 };

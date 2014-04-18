@@ -1,24 +1,17 @@
 extends layout
 block content
     body
-        .container
-            h2 Hey, #{user.name}. We're here to help.
-            include messages
-            h3 Crisis
-            .row
-                .col-md-6
-                    p Use this option only in the most serious of emergencies. It will send the following message to your contacts:
-                    blockquote
-                        p
-                          | I am having suicidal thoughts right now and I need your help. Please call or text me immediately and take me 
-                          | to a local hospital to get a suicide assessment. If you are unable to reach me, call 911. I am not safe and 
-                          | cannot guarantee you that right now I will not hurt myself. This is urgent and you must take immediate action.
-                .col-md-6
-                    form.form-signin(action="/crisis", method="post")
-                        button.btn.btn-lg.btn-danger.btn-block(type='submit') Send text messages and emails
-                    p
-                        | This will send the above message to all of your contacts through any available means of contact.
-                    em
-                        | Not an emergency? Use the 
-                        a(href="/alert") alert
-                        |  page instead to send a less urgent message.
+        include messages
+        div.content
+          div.content-padded
+            h5
+              | Use this option only in the most serious of emergencies. It will send the following message to your contacts:
+            p
+              em
+                | I am having suicidal thoughts right now and I need your help. Please call or text me immediately and take me to a local hospital to get a suicide assessment. If you are unable to reach me, call 911. I am not safe and cannot guarantee you that right now I will not hurt myself. This is urgent and you must take immediate action.
+            form(action="/crisis", method="post")
+              button.btn.btn-negative.btn-block(type="submit") Send text messages and emails
+            p
+              | Not an emergency? Use the 
+              a(href='alert') alert 
+              | page instead to send a less urgent message.

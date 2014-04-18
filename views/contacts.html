@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Defcon One</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="/css/ratchet.css" rel="stylesheet">
+    <script src="/js/ratchet.js"></script>
+  </head>
+  <body>
+    <!-- Make sure all your bars are the first things in your <body> -->
+    <header class="bar bar-nav">
+      <a class="icon icon-left-nav pull-left button-prev" href="javascript:history.back()"></a>
+      <a class="icon icon-home pull-right" href="index.html" data-transition="slide-out"></a>
+      <h1 class="title">Defcon One</h1>
+    </header>
+
+    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+    <div class="content">
+      <div class="card">
+        <ul class="table-view">
+          <li class="table-view-cell table-view-divider">Lori Bailey <button class="btn btn-negative">&times;</button></li>
+          <li class="table-view-cell">5125748800</li>
+          <li class="table-view-cell">loribailey@gmail.com</li>
+          <li class="table-view-cell table-view-divider">Brian Bailey <button class="btn btn-negative">&times;</button></li>
+          <li class="table-view-cell">5125748100</li>
+          <li class="table-view-cell">brianbailey@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

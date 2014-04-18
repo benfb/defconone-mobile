@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Defcon One</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="/css/ratchet.css" rel="stylesheet">
+    <script src="/js/ratchet.js"></script>
+  </head>
+  <body>
+    <!-- Make sure all your bars are the first things in your <body> -->
+    <header class="bar bar-nav">
+      <a class="icon icon-left-nav pull-left button-prev" href="javascript:history.back()"></a>
+      <a class="icon icon-home pull-right" href="index.html" data-transition="slide-out"></a>
+      <h1 class="title">Defcon One</h1>
+    </header>
+
+    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+    <div class="content">
+      <div class="content-padded">
+        <h5>Use this option if you're having a bad time and need support from friends and family. It will send the following message to your contacts:</h5>
+        <p><em>Emergency! Ben Bailey needs your help. Text them to let them know you're there for them.</em></p>
+        <form>
+          <button class="btn btn-positive btn-block">Send text messages</button>
+          <button class="btn btn-primary btn-block">Send emails</button>
+        </form>
+        <p>If your life is in immediate danger, use the <a href="crisis.html">crisis</a> page to send a more urgent message.</p>
+        </div>
+    </div>
+  </body>
+</html>

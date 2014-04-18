@@ -1,41 +1,20 @@
 extends layout
 block content
     body
-        .container
-            h2 Hey, #{user.name}. We're here to help.
-            include messages
-            if (user.contacts.length != 0)
-                .table-responsive
-                    table.table.table-striped
-                        thead
-                            tr
-                                th First Name
-                                th Last Name
-                                th Email Address
-                                th Phone Number
-                                th Delete
-                        tbody
+        .content
+            .content-padded
+                include messages
+                if (user.contacts.length != 0)
+                        .card
+                          ul.table-view
                             each contact in user.contacts
-                                tr
-                                    td= contact.fname
-                                    td= contact.lname
-                                    td= contact.email
-                                    td= contact.phone
-                                    td
-                                        a(href='/contacts/delete/#{contact.id}')
-                                            span(class="glyphicon glyphicon-trash")
-            form.form-signin(action="/contacts/add", method="post")
-                h3.form-signin-heading Add new contact
-                label(for='fname') Their first name
-                input.form-control(type='text', name='fname', placeholder='Jane')
-                <br>
-                label(for='lname') Their last name
-                input.form-control(type='text', name='lname', placeholder='Doe')
-                <br>
-                label(for='email') Their email address
-                input.form-control(type='email', name='email', placeholder='you@example.com')
-                <br>
-                label(for='phone') Their phone number
-                input.form-control(type='tel', name='phone', placeholder='5555555555')
-                <br>
-                button.btn.btn-lg.btn-success.btn-block(type='submit') Add contact
+                                li.table-view-cell.table-view-divider #{contact.fname} #{contact.lname}
+                                li.table-view-cell #{contact.phone}
+                                li.table-view-cell #{contact.email}
+                form(action="/contacts/add", method="post")
+                    h5 Add new contact
+                    input(type='text', name='fname', placeholder='Their first name')
+                    input(type='text', name='lname', placeholder='Their last name')
+                    input(type='email', name='email', placeholder='Their email address')
+                    input(type='tel', name='phone', placeholder='Their phone number')
+                    button.btn.btn-positive.btn-block(type='submit') Add contact

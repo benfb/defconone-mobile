@@ -1,50 +1,33 @@
 extends layout
 block content
     body
-        .container
-            h2 Hey, #{user.name}. We're here to help.
+        div.content
+          div.content-padded
             include messages
-            h3 Contacts        
-            strong
-                
+            h5
+              | Use this option if you're having a bad time and need support from friends and family. It will send the following message to your contacts:
+            p
+              em
+                | Emergency! Ben Bailey needs your help. Text them to let them know you're there for them.
+            p
                 | If you don't select any contacts to message below, the message will be sent to all of them. 
-                | You can add or delete contacts on the 
+                | You can add contacts on the 
                 a(href='/contacts') contacts
                 |  page.
             form(action="/alert", method="post")
                 if (user.contacts.length != 0)
-                    .table-responsive
-                        table.table.table-striped
-                            thead
-                                tr
-                                    th First Name
-                                    th Last Name
-                                    th Email Address
-                                    th Phone Number
-                                    th Send To?
-                            tbody
-                                each contact in user.contacts
-                                    tr
-                                        td= contact.fname
-                                        td= contact.lname
-                                        td= contact.email
-                                        td= contact.phone
-                                        td
-                                            input(type="checkbox", id="sendto", name="#{contact._id}")
-                h3 Alert
-                .row
-                    .col-md-6
-                        p
-                          | Use this option if you're having a bad time and need support from friends and family. 
-                          | It will send the following message to your contacts:
-                        blockquote
-                            p Emergency! #{user.name} needs your help. Text them to let them know you're there for them.
-                        em
-                          | If your life is in immediate danger, use the 
-                          a(href="/crisis") crisis
-                          |  page to send a more urgent message.
-                    .col-md-6    
-                        input(type="hidden", name="crisis", value="false")
-                        button.btn.btn-lg.btn-success.btn-block(type='submit', name='action', value='sms') Send text messages
-                        br
-                        button.btn.btn-lg.btn-info.btn-block(type='submit', name='action', value='email') Send emails
+                    .card
+                      ul.table-view
+                        each contact in user.contacts
+                            li.table-view-cell.table-view-divider
+                                input(type="checkbox", id="sendto", name="#{contact._id}")
+                                |  #{contact.fname} #{contact.lname}
+                            li.table-view-cell #{contact.phone}
+                            li.table-view-cell #{contact.email}
+                input(type="hidden", name="crisis", value="false")
+                button.btn.btn-positive.btn-block(type='submit', name='action', value='sms') Send text messages
+                button.btn.btn-primary.btn-block(type='submit', name='action', value='email') Send emails
+            p
+              | If your life is in immediate danger, use the 
+              a(href='crisis') crisis 
+              | page to send a more urgent message.
