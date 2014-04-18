@@ -38,6 +38,7 @@ var RedisStore = require('connect-redis')(express);
 var url = require('url');
 var redisUrl = url.parse(process.env.REDISTOGO_URL);
 var redisAuth = redisUrl.auth.split(':');
+var ipaddr = process.env.OPENSHIFT_NODEJS_IP || process.env.OPENSHIFT_INTERNAL_IP;  
 
 // all environments
 app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 3000);
@@ -288,7 +289,7 @@ app.get('/settings', ensureAuthenticated, routes.settings);
 app.get('/contacts', ensureAuthenticated, routes.contacts);
 app.get('/logout', routes.logout);
 
-http.createServer(app).listen(app.get('port'), function () {
+http.createServer(app).listen(app.get('port'), ipaddr, function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
