@@ -6,11 +6,6 @@ block content
             | Thanks for downloading Defcon One, an alert system for people in times of need to send messages and get in touch with friends, family, and hotlines through a simple web interface. If you are in immediate danger, call 911 right now. Use the buttons below to interact with the app.
           ul.table-view
             li.table-view-cell.media
-              a.navigate-right(href='about', data-transition='slide-in')
-                span.media-object.pull-left.icon.icon-info
-                div.media-body
-                  | About
-            li.table-view-cell.media
               a.navigate-right(href='alert', data-transition='slide-in')
                 span.media-object.pull-left.icon.icon-sound3
                 div.media-body
@@ -30,6 +25,11 @@ block content
                 span.media-object.pull-left.icon.icon-gear
                 div.media-body
                   | Settings
+            li.table-view-cell.media
+              a.navigate-right(href='about', data-transition='slide-in')
+                span.media-object.pull-left.icon.icon-info
+                div.media-body
+                  | About
             li.table-view-cell.media
               a.navigate-right(href='signin', data-transition='slide-in')
                 span.media-object.pull-left.icon.icon-edit

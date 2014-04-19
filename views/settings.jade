@@ -3,7 +3,7 @@ block content
     body
         .content
           include messages
-          h4 Settings
+          h4.content-padded Settings
           form.content-padded(action="/settings/changepass", method="post")
             input(type='password', name='newpass', autocomplete='off', placeholder='New password')
             input(type='password', name='newpass2', autocomplete='off', placeholder='New password again')
